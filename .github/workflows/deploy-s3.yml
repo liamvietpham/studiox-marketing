@@ -34,8 +34,8 @@ jobs:
 
       - name: Validate deploy settings
         env:
-          AWS_REGION: ${{ vars.AWS_REGION }}
-          AWS_S3_BUCKET: ${{ vars.AWS_S3_BUCKET }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         run: |
           [ -n "$AWS_REGION" ] || (echo "Missing repository variable AWS_REGION" && exit 1)
           [ -n "$AWS_S3_BUCKET" ] || (echo "Missing repository variable AWS_S3_BUCKET" && exit 1)
@@ -51,11 +51,11 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ vars.AWS_REGION }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Upload versioned static assets
         env:
-          AWS_S3_BUCKET: ${{ vars.AWS_S3_BUCKET }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         run: |
           aws s3 sync "$BUILD_DIR/" "s3://$AWS_S3_BUCKET/$S3_PREFIX/" \
             --delete \
@@ -64,7 +64,7 @@ jobs:
 
       - name: Remove stale HTML files
         env:
-          AWS_S3_BUCKET: ${{ vars.AWS_S3_BUCKET }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         run: |
           aws s3 sync "$BUILD_DIR/" "s3://$AWS_S3_BUCKET/$S3_PREFIX/" \
             --delete \
@@ -73,7 +73,7 @@ jobs:
 
       - name: Upload HTML files
         env:
-          AWS_S3_BUCKET: ${{ vars.AWS_S3_BUCKET }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         run: |
           aws s3 cp "$BUILD_DIR/" "s3://$AWS_S3_BUCKET/$S3_PREFIX/" \
             --recursive \
