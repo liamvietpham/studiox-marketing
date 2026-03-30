@@ -1,0 +1,174 @@
+{
+  "site": {
+    "name": "ATELIER NORTH",
+    "description": "A multi-disciplinary design studio focused on the intersection of craft, culture, and context.",
+    "copyright": "© 2026 ATELIER NORTH. ALL RIGHTS RESERVED."
+  },
+  "header": {
+    "cta": {
+      "label": "Contact",
+      "to": "/contact"
+    },
+    "navItems": [
+      { "label": "Home", "to": "/" },
+      { "label": "About", "to": "/about" },
+      { "label": "Services", "to": "/services" },
+      { "label": "Work", "to": "/work" },
+      { "label": "Pricing", "to": "/pricing" },
+      { "label": "Blog", "to": "/blog" }
+    ]
+  },
+  "hero": {
+    "kicker": "Capabilities",
+    "title": "Sculpting Space",
+    "subtitle": "& Conscious Living.",
+    "description": "Atelier North operates at the intersection of architectural rigor and sensory curation. We define environments that honor the landscape and the human experience."
+  },
+  "services": [
+    {
+      "code": "01 / DESIGN",
+      "title": "Architectural Design",
+      "description": "Bespoke structural solutions that harmonize with their immediate context. We create monolithic forms that feel light, prioritizing natural ventilation and poetic geometry.",
+      "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuA4roH-xwy2T5QcWD2x_X5RVtalGhj3-vGvnldKMWAgjs7ywAuGHqVrHj1D3jmgWwOSh4F-CAN3EaMQnFFk6kfHUDCnTjinBawUiV3eteiCqSwNd7RubD5WjFckOjtvVUH9hOi8_GlEqNdh3GjmynQ52smcs85gVHtmav336aGt-OeNojtUh21Cd3YJ23qS0uqeerM8vU4JG42ZbgL3ITlMJLglgtDPGS_XaAvFCZAFVPHScmw6kapNNSxW5DESti8QfGCXIr-RFjU",
+      "imageAlt": "Minimalist concrete architectural structure with dramatic shadows and geometric lines.",
+      "imageAspectClass": "aspect-[4/3] md:aspect-[4/5]",
+      "reverseOnDesktop": false,
+      "surfaceClass": "bg-[#f7f3ee]",
+      "steps": [
+        {
+          "label": "STEP 01",
+          "title": "Discovery",
+          "description": "Site analysis and environmental mapping."
+        },
+        {
+          "label": "STEP 02",
+          "title": "Curation",
+          "description": "Material selection and volumetric prototyping."
+        },
+        {
+          "label": "STEP 03",
+          "title": "Execution",
+          "description": "Precision engineering and artisan oversight."
+        }
+      ],
+      "outcome": "Timeless structures that increase in cultural value over generations."
+    },
+    {
+      "code": "02 / INTERIORS",
+      "title": "Interior Curation",
+      "description": "Beyond decoration, we design the tactile interface of life. Selecting rare materials and bespoke furniture to create a narrative of sophisticated silence.",
+      "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuBWoRqxJ_bYmYQVjQQpn8hrockW91LL_xnH7IKRGrqZKXjUR23lDF9Am8SZDbFPa_5nprVph-jBf4IYAxSA9PzsBOHsQIdKUQFzjILF-hveNcsGrfBhWA9PRiovXZszxBqqF5ohDKed8wakjcbL6OsB3epudQXo3d4qVRtOVxNx5p_m3cTN89rx5FT_uLGi_DWtmp9PV9pxh5l6aQ7flfvvw0gcdbNcaLfnsplOBv76hK1mCjFxRKcix55atYayq3RfmRs3eF_kRpo",
+      "imageAlt": "Luxury minimalist living room with warm textures and soft morning sunlight.",
+      "imageAspectClass": "aspect-[4/3] md:aspect-[4/3]",
+      "reverseOnDesktop": true,
+      "surfaceClass": "bg-[#fdf9f4]",
+      "steps": [
+        {
+          "label": "STEP 01",
+          "title": "Discovery",
+          "description": "Sensory profiling and lifestyle auditing."
+        },
+        {
+          "label": "STEP 02",
+          "title": "Curation",
+          "description": "Material palette development and artisan sourcing."
+        },
+        {
+          "label": "STEP 03",
+          "title": "Execution",
+          "description": "Staged installation and atmospheric lighting calibration."
+        }
+      ],
+      "outcome": "Environments that foster deep focus and restoration."
+    },
+    {
+      "code": "03 / PLANNING",
+      "title": "Urban Planning",
+      "description": "Master-planning for communities that value connection and scale. We design the in-between spaces that define the pulse of modern urban life.",
+      "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuBqHDg2PqfM7YpmOSUw0XKy5Y0TMI55nD_F-BN5Xzk_1t2vuDWyfRrqJ02hP4-nrPUdmnZ6CLGu9HRhGxlOWlGs6laGnX1YS3MGGV4As_ju-cSCzaR56VyocdusprnE9eKkwmZWK8vvbknupMxBgXPKjXkIY2WCB6IGVZ1_0GLDPn0BBiq3zWgI5jLCNqKljoAfdN8znqJPKSLIhTthqqN3Vk5CclsyX7vhggnu9SEW_szfMAMTGAqINoRQpWgoFyy5cm0FWGpx0bM",
+      "imageAlt": "Aerial view of a planned urban neighborhood with green pedestrian paths.",
+      "imageAspectClass": "aspect-[4/3] md:aspect-video",
+      "reverseOnDesktop": false,
+      "surfaceClass": "bg-[#f7f3ee]",
+      "steps": [
+        {
+          "label": "STEP 01",
+          "title": "Discovery",
+          "description": "Demographic studies and circulation mapping."
+        },
+        {
+          "label": "STEP 02",
+          "title": "Curation",
+          "description": "Zoning strategy and community ecosystem design."
+        },
+        {
+          "label": "STEP 03",
+          "title": "Execution",
+          "description": "Infrastructure phase management and policy alignment."
+        }
+      ],
+      "outcome": "Sustainable urban hubs that promote social friction and belonging."
+    },
+    {
+      "code": "04 / STRATEGY",
+      "title": "Sustainable Strategy",
+      "description": "Integrating regenerative technology into luxury frameworks. We prove that ethical design and high-end aesthetics are not mutually exclusive.",
+      "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuAUSvONrMBstEMogoFXdMZOPqUuOrAEpIARSb1wW3P0Aw5MMXEM4s9aoprPKjPvJ4i8_5sycav-CayJI5bCg9rJzcPx3kelaXE95XxiezHKu0z0bKREqX3gx_daciV8O-Pk1kb5Z2jFyevMQ7oPQupOEmaSG8O2Xf0zwcynDsDEs4VD8eeAuSieTzbogZm0HUMLY9f2GySvYZNNdFYqObFMUoyxCmxXob3PQ7CX4AgqSKb6ao_rer78kQLid2qwNwa7wrgwD5SMpT8",
+      "imageAlt": "Close-up of sustainable building materials in a premium architecture studio.",
+      "imageAspectClass": "aspect-[4/3] md:aspect-square",
+      "reverseOnDesktop": true,
+      "surfaceClass": "bg-[#fdf9f4]",
+      "steps": [
+        {
+          "label": "STEP 01",
+          "title": "Discovery",
+          "description": "Carbon footprint analysis and resource auditing."
+        },
+        {
+          "label": "STEP 02",
+          "title": "Curation",
+          "description": "Renewable energy systems and circular material sourcing."
+        },
+        {
+          "label": "STEP 03",
+          "title": "Execution",
+          "description": "LEED certification management and efficiency monitoring."
+        }
+      ],
+      "outcome": "Zero-impact living without compromising architectural integrity."
+    }
+  ],
+  "cta": {
+    "kicker": "Inquiry",
+    "title": "Ready to curate",
+    "subtitle": "your next landmark?",
+    "buttonLabel": "Schedule a Consultation",
+    "buttonTo": "/contact"
+  },
+  "footer": {
+    "navigationGroups": [
+      {
+        "title": "Navigation",
+        "links": [
+          { "label": "Home", "to": "/" },
+          { "label": "About", "to": "/about" },
+          { "label": "Services", "to": "/services" },
+          { "label": "Work", "to": "/work" }
+        ]
+      },
+      {
+        "title": "Legal",
+        "links": [
+          { "label": "Privacy", "to": "#" },
+          { "label": "Terms", "to": "#" }
+        ]
+      }
+    ],
+    "newsletter": {
+      "title": "Newsletter",
+      "placeholder": "Email Address",
+      "buttonLabel": "Subscribe →"
+    },
+    "legalLinks": []
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "site": {
+    "name": "ATELIER NORTH",
+    "description": "The Silent Architect of Digital Luxury. Bespoke design and development for discerning global clients.",
+    "copyright": "© 2026 ATELIER NORTH. ALL RIGHTS RESERVED."
+  },
+  "header": {
+    "cta": {
+      "label": "Contact",
+      "to": "/contact"
+    },
+    "navItems": [
+      { "label": "Home", "to": "/" },
+      { "label": "About", "to": "/about" },
+      { "label": "Services", "to": "/services" },
+      { "label": "Work", "to": "/work" },
+      { "label": "Pricing", "to": "/pricing" },
+      { "label": "Blog", "to": "/blog" }
+    ]
+  },
+  "hero": {
+    "kicker": "Digital Experience Studio",
+    "title": "The Silent Architect of Digital Luxury.",
+    "titleEmphasis": "Digital Luxury.",
+    "exploreLabel": "Explore Portfolio",
+    "scrollLabel": "Scroll",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuAWEw1Yi3i-RVTqow1r5swYUKGkPEK1dcw7iT9kbX4PleaKAruY6tZ1SVc17kAHvyeie9ylbh2vvjr3JFUY-XcYXRrCAlc3BnFWJSjav300rIS32DpNeZO4eIjL1gunXnvO8m1o7gsAaP52QoUVz2uqufsdNhkVRXdhazD6arDOGBsRZW1YpJGpL74MOJ_vkBeQiec-Na3sVtw6vhb-06Xjo4_9wFO3qAnbcWf2QqoHQhFwLoRbn8sE-Ayf_jmGoTst3xOZIei0KJY",
+    "imageAlt": "Minimalist brutalist concrete architecture interior with dramatic light and shadow."
+  },
+  "philosophy": {
+    "kicker": "Philosophy",
+    "title": "We craft digital experiences for those who value the unspoken. In a world of noise, we find power in stillness, intentionality, and the surgical precision of design.",
+    "paragraphs": [
+      "Our approach is rooted in the Silent Curator methodology. We don't just build interfaces; we curate atmospheres that resonate with high-discerning audiences.",
+      "By prioritizing negative space and scale contrast, we elevate brands from functional to aspirational, creating a digital legacy that endures."
+    ]
+  },
+  "selectedWork": {
+    "kicker": "Case Studies",
+    "title": "Selected Work",
+    "archiveLabel": "View Archive",
+    "archiveTo": "/work",
+    "cases": [
+      {
+        "category": "Architectural Visuals",
+        "title": "The Monolith Collective",
+        "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuDrr2oupjBj3l5koMpVTLf1NqT2hIy3jGm9QQuKh8MJNCm0OroNsF0A_IMieQPN_Ju81mTJ4hIvDzV-k9uhAYBPla13vP640-4r-cvw2wWsDo8Vt3-n127ETpG-58TVDS4aa1celvna5I3A-GnyCG8Y0BbALJ_EpY2ZtDngGzc_YfgL5XDVqL17M4qhr-MBPAdzQQfJDuzpXrk_XPVchfdx9mRAYzoQ0soDH3ikL0fzgll5zzYD-khRm5i5Yp5jHnBTu6SLoIGEKZQ",
+        "imageAlt": "High-fashion editorial shot of a sculptural stone vase in a minimalist gallery."
+      },
+      {
+        "category": "Digital Commerce",
+        "title": "Aura Fragrances",
+        "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuA7TPIkrGFZEwXE6R69OK1NFSsAf6oMHaCke0A-pIxjUQlvDex9XOKnM6EKkUnsxf-RAzuQNml6BlyuX_DrZKSa849XVVvFlJiuYmbwSIPqTRKjCcd2zZ6ZAJLr2Fg2ws4DFvBecDapXBNMnusTxuGyLO3rflxwoLM0f6o2OSxe3fFGGcsA2-ifFTlVa5ZGfdAFwTspmuaET9vXCc0SX00Lwq27_WtlOfzkiLW8VnU6Z093OOe2rNwX9yqprJdqCaTGcD8PsYN8zac",
+        "imageAlt": "Luxury boutique interior with dark wood textures and warm accent lighting."
+      }
+    ]
+  },
+  "services": {
+    "items": [
+      {
+        "icon": "brand_awareness",
+        "name": "Brand Identity",
+        "description": "Forging timeless visual signatures for legacy-driven organizations."
+      },
+      {
+        "icon": "web_asset",
+        "name": "Digital Design",
+        "description": "Cinematic interfaces that prioritize clarity and atmospheric depth."
+      },
+      {
+        "icon": "terminal",
+        "name": "Development",
+        "description": "High-performance engineering that mirrors the precision of the design."
+      },
+      {
+        "icon": "diamond",
+        "name": "Luxury Strategy",
+        "description": "Consultancy for brands navigating the high-end digital landscape."
+      }
+    ]
+  },
+  "testimonial": {
+    "quote": "Atelier North understands the luxury market like no other. They didn't just build a site; they created a digital sanctuary for our brand.",
+    "author": "Julianna Vercetti",
+    "role": "CEO, Vercetti Marque"
+  },
+  "cta": {
+    "kicker": "Next Phase",
+    "title": "Ready to create?",
+    "buttonLabel": "Start a Conversation",
+    "buttonTo": "/contact"
+  },
+  "footer": {
+    "navigationGroups": [
+      {
+        "title": "Navigation",
+        "links": [
+          { "label": "Home", "to": "/" },
+          { "label": "About", "to": "/about" },
+          { "label": "Services", "to": "/services" },
+          { "label": "Pricing", "to": "/pricing" }
+        ]
+      },
+      {
+        "title": "Journal",
+        "links": [
+          { "label": "Blog", "to": "/blog" },
+          { "label": "Contact", "to": "/contact" }
+        ]
+      }
+    ],
+    "newsletter": {
+      "title": "Newsletter",
+      "placeholder": "Email Address",
+      "buttonLabel": "Subscribe →"
+    },
+    "legalLinks": [
+      { "label": "Privacy", "to": "#" },
+      { "label": "Terms", "to": "#" }
+    ]
+  }
+}

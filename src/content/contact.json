@@ -1,0 +1,87 @@
+{
+  "site": {
+    "name": "ATELIER NOIR",
+    "copyright": "© 2026 ATELIER NOIR. ALL RIGHTS RESERVED."
+  },
+  "header": {
+    "cta": {
+      "label": "Inquire",
+      "to": "/contact"
+    },
+    "navItems": [
+      { "label": "Work", "to": "/work" },
+      { "label": "Services", "to": "/services" },
+      { "label": "Journal", "to": "/blog" },
+      { "label": "Contact", "to": "/contact" }
+    ]
+  },
+  "hero": {
+    "kicker": "The Dialogue",
+    "title": "Let’s shape something meaningful together."
+  },
+  "form": {
+    "fields": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Your Full Name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "email@address.com"
+      },
+      "subject": {
+        "label": "Subject",
+        "options": [
+          "Architecture Inquiry",
+          "Interior Design",
+          "Editorial Collaboration",
+          "General Message"
+        ]
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell us about your vision..."
+      }
+    },
+    "submitLabel": "Send Inquiry",
+    "submitIcon": "arrow_forward"
+  },
+  "office": {
+    "title": "Montreal Studio",
+    "addressLines": [
+      "452 Rue de la Gauchetière Ouest",
+      "Suite 400",
+      "Montréal, QC H2Z 1E3"
+    ],
+    "scheduleIcon": "schedule",
+    "scheduleLabel": "By Appointment Only"
+  },
+  "map": {
+    "location": "Montreal",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuCVakqe4VxVsA6sazf8ntKYXgIsPFwqVmYgDOQD9xoAefAUdUK2NSS946dMna2tpbp0yN9-aCfJJxypp3nZJZc6Pp3b3dJ-PYvZMAqGq0wwbNR0IlRA1NPXQPhSs1-gWpDPCw92NkPLBVNxoQGAFYaet_-dwD0rxXmGVNV-8rNUzn_mupT9GtDC2gAJkSe7XdV4H-3qwX8prEtOBmnD95-daXzy_qCiKeaWLtzuSl5UHj-nrHHt1_mNS_e9jieTZPBp5zXwQzmjbnQ",
+    "imageAlt": "Minimalist grayscale architectural map of a city grid with clean lines and soft shadows."
+  },
+  "channels": {
+    "digital": {
+      "kicker": "Digital",
+      "email": "hello@ateliernoir.com",
+      "phone": "+1 514 555 0192"
+    },
+    "follow": {
+      "kicker": "Follow",
+      "links": [
+        { "label": "Instagram", "to": "#" },
+        { "label": "LinkedIn", "to": "#" },
+        { "label": "Pinterest", "to": "#" }
+      ]
+    }
+  },
+  "footer": {
+    "links": [
+      { "label": "Instagram", "to": "#" },
+      { "label": "LinkedIn", "to": "#" },
+      { "label": "Journal", "to": "/blog" },
+      { "label": "Privacy", "to": "#" }
+    ]
+  }
+}
