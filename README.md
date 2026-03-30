@@ -46,6 +46,21 @@ yarn build
 yarn preview
 ```
 
+## GitHub Actions Deploy To S3
+
+This repo includes a workflow at `.github/workflows/deploy-s3.yml` that:
+
+- runs on every push to `main`
+- builds the static site with `yarn build`
+- uploads the generated files from `build/client` to `s3://<bucket>/site/`
+
+Before using it, configure these GitHub repository settings:
+
+- `Secrets`: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`
+- `Variables`: `AWS_REGION`, `AWS_S3_BUCKET`
+
+You can also run the workflow manually from the `Actions` tab with `workflow_dispatch`.
+
 ## Scripts
 
 ```json

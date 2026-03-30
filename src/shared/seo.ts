@@ -59,4 +59,12 @@ export function buildCanonicalLinks(pathname: string) {
   return [{ rel: "canonical", href: toAbsoluteUrl(pathname) }];
 }
 
+export function buildCanonicalMeta(pathname: string) {
+  return {
+    tagName: "link",
+    rel: "canonical",
+    href: toAbsoluteUrl(pathname),
+  };
+}
+
 export { SITE_ORIGIN };
