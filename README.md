@@ -60,16 +60,19 @@ Before using it, configure these GitHub repository settings:
 
 - `Secrets`: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`, `AWS_S3_BUCKET`, `AWS_CLOUDFRONT_DISTRIBUTION_ID`
 
+In the current workflow, `AWS_CLOUDFRONT_DISTRIBUTION_ID` should point to the site distribution. The images distribution is expected to be managed separately or by another workflow if you also want automated invalidation for image assets.
+
 You can also run the workflow manually from the `Actions` tab with `workflow_dispatch`.
 
 ## S3 And CloudFront Setup
 
 The recommended production setup for this repo is:
 
-- keep the S3 bucket private
-- upload the built site into the `site/` prefix inside the bucket
-- serve the site only through CloudFront
-- let CloudFront rewrite clean URLs such as `/about` to `/about/index.html`
+- keep one S3 bucket private
+- store website files under the `site/` prefix
+- store shared image assets under the `images/` prefix
+- use one CloudFront distribution for the site and a second CloudFront distribution for images
+- let the site distribution rewrite clean URLs such as `/about` to `/about/index.html`
 
 ### S3 Configuration
 
@@ -87,26 +90,27 @@ The GitHub Actions workflow uploads to:
 s3://<AWS_S3_BUCKET>/site/
 ```
 
-That means the homepage becomes:
+The bucket layout is expected to look like this:
 
 ```text
-s3://<AWS_S3_BUCKET>/site/index.html
+s3://<AWS_S3_BUCKET>/
+├── site/
+│   ├── index.html
+│   ├── about/index.html
+│   └── assets/...
+└── images/
+    ├── hero-01.jpg
+    └── brand/logo.svg
 ```
 
-and a route such as `/about` becomes:
-
-```text
-s3://<AWS_S3_BUCKET>/site/about/index.html
-```
-
-Use a bucket policy that only allows the CloudFront distribution to read objects from the `site/*` prefix:
+Use a bucket policy that allows the site distribution to read `site/*` and the images distribution to read `images/*`:
 
 ```json
 {
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "AllowCloudFrontReadSiteOnly",
+      "Sid": "AllowSiteDistributionReadSitePrefix",
       "Effect": "Allow",
       "Principal": {
         "Service": "cloudfront.amazonaws.com"
@@ -115,7 +119,21 @@ Use a bucket policy that only allows the CloudFront distribution to read objects
       "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/site/*",
       "Condition": {
         "StringEquals": {
-          "AWS:SourceArn": "arn:aws:cloudfront::YOUR_ACCOUNT_ID:distribution/YOUR_DISTRIBUTION_ID"
+          "AWS:SourceArn": "arn:aws:cloudfront::YOUR_ACCOUNT_ID:distribution/YOUR_SITE_DISTRIBUTION_ID"
+        }
+      }
+    },
+    {
+      "Sid": "AllowImagesDistributionReadImagesPrefix",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "cloudfront.amazonaws.com"
+      },
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/images/*",
+      "Condition": {
+        "StringEquals": {
+          "AWS:SourceArn": "arn:aws:cloudfront::YOUR_ACCOUNT_ID:distribution/YOUR_IMAGES_DISTRIBUTION_ID"
         }
       }
     }
@@ -123,43 +141,53 @@ Use a bucket policy that only allows the CloudFront distribution to read objects
 }
 ```
 
-### CloudFront Origin Configuration
+### Site CloudFront Distribution
 
-Create a CloudFront origin that points to the regular S3 bucket origin, not the S3 website endpoint:
+Create the site distribution against the regular S3 bucket origin, not the S3 website endpoint:
 
 - `Origin domain`: `YOUR_BUCKET_NAME.s3.<region>.amazonaws.com`
 - `Origin path`: `/site`
 - `Origin access`: `Origin access control settings (recommended)`
 - `Signing behavior`: `Sign requests`
-- do not use the `s3-website-...amazonaws.com` endpoint for this private setup
-
-Important:
-
-- `Origin path` must be `/site`, not `/*`
 - `Default root object` must be `index.html`
+- `Path pattern`: `Default (*)`
+- `Viewer protocol policy`: `Redirect HTTP to HTTPS`
+- `Allowed methods`: `GET, HEAD`
+- `Compress objects automatically`: `On`
+- do not use the `s3-website-...amazonaws.com` endpoint for this private setup
+- `Origin path` must be `/site`, not `/*`
 - do not prefix the default root object with `/`
 
-### CloudFront Behavior Configuration
+### Images CloudFront Distribution
 
-For the static site itself, one default behavior is enough:
+Create a second distribution for images that points to the same private S3 bucket:
 
+- `Origin domain`: `YOUR_BUCKET_NAME.s3.<region>.amazonaws.com`
+- `Origin path`: `/images`
+- `Origin access`: `Origin access control settings (recommended)`
+- `Signing behavior`: `Sign requests`
 - `Path pattern`: `Default (*)`
-- target origin: the `site` origin above
 - `Viewer protocol policy`: `Redirect HTTP to HTTPS`
 - `Allowed methods`: `GET, HEAD`
 - `Compress objects automatically`: `On`
 
-If the same bucket also contains a separate `image/` prefix and you want to expose it through the same distribution, add a second origin/behavior:
+With this setup, an image URL such as:
 
-- create an `image` origin that points to the same bucket
-- leave the `image` origin path empty if requests should look like `/image/logo.png`
-- add behavior `/image/*` to that origin
+```text
+https://images.example.com/hero-01.jpg
+```
+
+maps to:
+
+```text
+s3://<AWS_S3_BUCKET>/images/hero-01.jpg
+```
 
 ### CloudFront Function For Clean URLs
 
-Because the site is static and stored as `about/index.html`, CloudFront should rewrite requests before they reach S3.
+Because the site is static and stored as `about/index.html`, the site distribution should rewrite requests before they reach S3.
 
-Create a CloudFront Function and associate it with the `Viewer request` event on the `Default (*)` behavior:
+Create a CloudFront Function and associate it with the `Viewer request` event on the site distribution's `Default (*)` behavior:
 
 ```js
 function handler(event) {
@@ -190,10 +218,12 @@ After the first deployment:
 
 - confirm `build/client/index.html` exists locally after `yarn build`
 - confirm S3 contains `site/index.html` and nested route files such as `site/about/index.html`
-- confirm CloudFront `Default root object` is `index.html`
-- confirm the CloudFront function is associated with `Viewer request`
-- open `/`, `/about`, and one blog detail route from the CloudFront domain
-- if CloudFront serves stale content, create an invalidation for `/*`
+- confirm S3 contains image assets under `images/`
+- confirm the site CloudFront `Default root object` is `index.html`
+- confirm the site CloudFront function is associated with `Viewer request`
+- open `/`, `/about`, and one blog detail route from the site CloudFront domain
+- open one asset such as `/hero-01.jpg` from the images CloudFront domain
+- if CloudFront serves stale site content, create an invalidation for the site distribution
 
 ### Useful AWS References
 
