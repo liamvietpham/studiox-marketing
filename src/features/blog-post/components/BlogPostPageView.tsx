@@ -72,7 +72,7 @@ function ArticleSection({ section }: { section: BlogPostSection }) {
         <h3 className="headline-font mb-6 text-xl text-black">{section.title}</h3>
         <p className="mb-8 text-sm leading-relaxed text-[#1c1c19]/70">{section.description}</p>
         <Link
-          className="border-b border-black/20 pb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-black transition-all hover:border-black"
+          className="border-b border-black/20 pb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-black transition-colors duration-300 hover:border-black"
           to={section.buttonTo}
         >
           {section.buttonLabel}

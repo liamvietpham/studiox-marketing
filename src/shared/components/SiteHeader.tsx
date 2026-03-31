@@ -20,9 +20,9 @@ function NavigationLink({
   onClick?: () => void;
 }) {
   const baseClassName =
-    "editorial-label pb-1 transition-colors duration-300 hover:text-black";
+    "editorial-label border-b border-transparent pb-1 transition-colors duration-300 hover:text-black";
   const activeClassName = item.active
-    ? "text-black border-b border-black/20"
+    ? "border-black/20 text-black"
     : "text-[#444748]";
 
   if (item.to.startsWith("#")) {

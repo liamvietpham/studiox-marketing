@@ -6,6 +6,11 @@ import { PageFrame } from "@/shared/components/PageFrame";
 type PricingPageViewProps = PricingPageViewModel;
 
 function PlanCard({ plan, isFirst, isLast }: { plan: PricingPlan; isFirst: boolean; isLast: boolean }) {
+  const buttonClassName =
+    plan.buttonVariant === "solid"
+      ? "bg-black text-white transition-opacity duration-300 hover:opacity-80"
+      : "border border-black text-black transition-colors duration-300 hover:bg-black hover:text-white";
+
   return (
     <article
       className={`relative flex h-full flex-col p-8 md:p-12 lg:p-16 ${
@@ -38,11 +43,7 @@ function PlanCard({ plan, isFirst, isLast }: { plan: PricingPlan; isFirst: boole
       </ul>
 
       <button
-        className={`w-full py-5 text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 ${
-          plan.buttonVariant === "solid"
-            ? "bg-black text-white hover:opacity-80"
-            : "border border-black text-black hover:bg-black hover:text-white"
-        }`}
+        className={`w-full py-5 text-[10px] font-bold uppercase tracking-[0.2em] ${buttonClassName}`}
         type="button"
       >
         {plan.buttonLabel}
@@ -147,7 +148,7 @@ export function PricingPageView({
               </h2>
               <p className="mx-auto mb-10 max-w-xl text-black">{content.imageCta.description}</p>
               <Link
-                className="inline-block bg-black px-12 py-5 text-[10px] font-bold uppercase tracking-[0.3em] text-white transition-all hover:opacity-80"
+                className="inline-block bg-black px-12 py-5 text-[10px] font-bold uppercase tracking-[0.3em] text-white transition-opacity duration-300 hover:opacity-80"
                 to={content.imageCta.buttonTo}
               >
                 {content.imageCta.buttonLabel}

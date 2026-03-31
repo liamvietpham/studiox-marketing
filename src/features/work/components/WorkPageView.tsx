@@ -69,8 +69,10 @@ export function WorkPageView({
 
               return (
                 <button
-                  className={`shrink-0 pb-4 text-xs font-semibold uppercase tracking-[0.1em] transition-colors ${
-                    isActive ? "border-b-2 border-black text-black" : "text-[#444748]/70 hover:text-black"
+                  className={`shrink-0 border-b-2 pb-4 text-xs font-semibold uppercase tracking-[0.1em] transition-colors ${
+                    isActive
+                      ? "border-black text-black"
+                      : "border-transparent text-[#444748]/70 hover:text-black"
                   }`}
                   key={filter.key}
                   onClick={() => setActiveFilterKey(filter.key)}
@@ -102,7 +104,7 @@ export function WorkPageView({
               {content.cta.title} <span className="italic">{content.cta.emphasis}</span>
             </h2>
             <Link
-              className="inline-block bg-black px-10 py-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition-all hover:opacity-80 active:scale-[0.98] md:px-16 md:py-6"
+              className="inline-block bg-black px-10 py-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition-[opacity,transform] duration-300 hover:opacity-80 active:scale-[0.98] md:px-16 md:py-6"
               to={content.cta.buttonTo}
             >
               {content.cta.buttonLabel}
