@@ -36,9 +36,11 @@ jobs:
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
         run: |
-          [ -n "$AWS_REGION" ] || (echo "Missing repository variable AWS_REGION" && exit 1)
-          [ -n "$AWS_S3_BUCKET" ] || (echo "Missing repository variable AWS_S3_BUCKET" && exit 1)
+          [ -n "$AWS_REGION" ] || (echo "Missing repository secret AWS_REGION" && exit 1)
+          [ -n "$AWS_S3_BUCKET" ] || (echo "Missing repository secret AWS_S3_BUCKET" && exit 1)
+          [ -n "$AWS_CLOUDFRONT_DISTRIBUTION_ID" ] || (echo "Missing repository secret AWS_CLOUDFRONT_DISTRIBUTION_ID" && exit 1)
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
@@ -81,3 +83,11 @@ jobs:
             --include "*.html" \
             --cache-control "no-cache,no-store,must-revalidate" \
             --content-type "text/html; charset=utf-8"
+
+      - name: Invalidate CloudFront cache
+        env:
+          AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "$AWS_CLOUDFRONT_DISTRIBUTION_ID" \
+            --paths "/*"

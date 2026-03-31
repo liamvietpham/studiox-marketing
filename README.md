@@ -56,8 +56,7 @@ This repo includes a workflow at `.github/workflows/deploy-s3.yml` that:
 
 Before using it, configure these GitHub repository settings:
 
-- `Secrets`: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`
-- `Variables`: `AWS_REGION`, `AWS_S3_BUCKET`
+- `Secrets`: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`, `AWS_S3_BUCKET`, `AWS_CLOUDFRONT_DISTRIBUTION_ID`
 
 You can also run the workflow manually from the `Actions` tab with `workflow_dispatch`.
 
