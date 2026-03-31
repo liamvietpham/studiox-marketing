@@ -69,7 +69,7 @@ function ArticleSection({ section }: { section: BlogPostSection }) {
         <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-400">
           {section.kicker}
         </p>
-        <h4 className="headline-font mb-6 text-xl text-black">{section.title}</h4>
+        <h3 className="headline-font mb-6 text-xl text-black">{section.title}</h3>
         <p className="mb-8 text-sm leading-relaxed text-[#1c1c19]/70">{section.description}</p>
         <Link
           className="border-b border-black/20 pb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-black transition-all hover:border-black"
@@ -157,6 +157,7 @@ export function BlogPostPageView({
         <article className="mx-auto mb-24 grid max-w-[1240px] grid-cols-1 gap-12 px-4 sm:px-6 md:px-12 lg:grid-cols-12">
           <div className="lg:col-start-4 lg:col-span-6">
             <div className="space-y-10 md:space-y-12">
+              <h2 className="sr-only">Article content</h2>
               <p className="text-lg italic leading-relaxed text-black/90 first-letter:float-left first-letter:mr-4 first-letter:mt-2 first-letter:font-['Noto_Serif'] first-letter:text-6xl md:text-xl">
                 {content.article.intro}
               </p>
@@ -181,27 +182,27 @@ export function BlogPostPageView({
           <aside className="hidden lg:col-span-3 lg:col-start-10 lg:block">
             <div className="sticky top-40 space-y-16">
               <div>
-                <h5 className="mb-8 text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-400">
+                <h2 className="mb-8 text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-400">
                   Related Journal
-                </h5>
+                </h2>
                 <div className="space-y-12">
                   {content.sidebar.related.map((item) => (
                     <SmartLink className="group block" key={item.title} to={item.to}>
                       <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-stone-400">
                         {item.kicker}
                       </p>
-                      <h6 className="headline-font text-lg leading-tight transition-colors group-hover:text-[#735b25]">
+                      <h3 className="headline-font text-lg leading-tight transition-colors group-hover:text-[#735b25]">
                         {item.title}
-                      </h6>
+                      </h3>
                     </SmartLink>
                   ))}
                 </div>
               </div>
 
               <div>
-                <h5 className="mb-6 text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-400">
+                <h2 className="mb-6 text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-400">
                   {content.sidebar.newsletter.title}
-                </h5>
+                </h2>
                 <p className="mb-4 text-xs leading-relaxed text-stone-500">
                   {content.sidebar.newsletter.description}
                 </p>
@@ -224,6 +225,7 @@ export function BlogPostPageView({
 
         <section className="border-t border-black/5">
           <div className="mx-auto grid max-w-[1240px] grid-cols-1 md:grid-cols-2 md:divide-x md:divide-black/5">
+            <h2 className="sr-only">Post navigation</h2>
             <SmartLink
               className="group flex flex-col items-start justify-center p-10 transition-colors hover:bg-[#f7f3ee] md:p-20"
               to={content.postNavigation.previous.to}
@@ -232,9 +234,9 @@ export function BlogPostPageView({
                 <span className="material-symbols-outlined text-sm">{content.postNavigation.previous.icon}</span>
                 {content.postNavigation.previous.label}
               </span>
-              <h4 className="headline-font text-3xl transition-transform duration-500 group-hover:translate-x-2 md:text-4xl">
+              <h3 className="headline-font text-3xl transition-transform duration-500 group-hover:translate-x-2 md:text-4xl">
                 {content.postNavigation.previous.title}
-              </h4>
+              </h3>
             </SmartLink>
             <SmartLink
               className="group flex flex-col items-end justify-center p-10 text-right transition-colors hover:bg-[#f7f3ee] md:p-20"
@@ -244,9 +246,9 @@ export function BlogPostPageView({
                 {content.postNavigation.next.label}
                 <span className="material-symbols-outlined text-sm">{content.postNavigation.next.icon}</span>
               </span>
-              <h4 className="headline-font text-3xl transition-transform duration-500 group-hover:-translate-x-2 md:text-4xl">
+              <h3 className="headline-font text-3xl transition-transform duration-500 group-hover:-translate-x-2 md:text-4xl">
                 {content.postNavigation.next.title}
-              </h4>
+              </h3>
             </SmartLink>
           </div>
         </section>

@@ -79,6 +79,7 @@ export function PricingPageView({
         </section>
 
         <section className="mx-auto grid max-w-[1440px] grid-cols-1 gap-0 px-4 py-12 sm:px-6 md:grid-cols-3 lg:px-10">
+          <h2 className="sr-only">Pricing plans</h2>
           {content.plans.map((plan, index) => (
             <PlanCard
               isFirst={index === 0}

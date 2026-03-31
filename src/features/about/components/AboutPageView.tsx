@@ -93,7 +93,7 @@ export function AboutPageView({
                       {timelineItem.year}
                     </div>
                     <div className="col-span-12 border-l border-[#c4c7c7]/40 pl-6 md:col-span-10 md:pl-10 lg:pl-12">
-                      <h4 className="headline-font mb-3 text-xl text-black">{timelineItem.title}</h4>
+                      <h3 className="headline-font mb-3 text-xl text-black">{timelineItem.title}</h3>
                       <p className="max-w-xl text-sm text-[#444748]">{timelineItem.description}</p>
                     </div>
                   </article>
@@ -124,7 +124,7 @@ export function AboutPageView({
                       src={member.imageUrl}
                     />
                   </div>
-                  <h4 className="headline-font text-xl text-black">{member.name}</h4>
+                  <h3 className="headline-font text-xl text-black">{member.name}</h3>
                   <span className="editorial-label text-[#735b25]">{member.role}</span>
                 </article>
               ))}

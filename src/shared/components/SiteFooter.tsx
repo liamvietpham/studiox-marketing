@@ -39,7 +39,7 @@ export function SiteFooter({ brandName, description, copyright, footer }: SiteFo
 
         {footer.navigationGroups.map((group) => (
           <div className={hasNewsletter ? "lg:col-span-2" : "lg:col-span-3"} key={group.title}>
-            <h5 className="editorial-label mb-5 text-black">{group.title}</h5>
+            <h2 className="editorial-label mb-5 text-black">{group.title}</h2>
             <ul className="space-y-3">
               {group.links.map((link) => (
                 <li key={link.label}>
@@ -52,7 +52,7 @@ export function SiteFooter({ brandName, description, copyright, footer }: SiteFo
 
         {footer.newsletter ? (
           <div className="md:col-span-2 lg:col-span-4">
-            <h5 className="editorial-label mb-5 text-black">{footer.newsletter.title}</h5>
+            <h2 className="editorial-label mb-5 text-black">{footer.newsletter.title}</h2>
             <form className="flex max-w-sm flex-col gap-3">
               <input
                 className="border-b border-black/20 bg-transparent py-2 text-sm outline-none placeholder:text-[#747878]"

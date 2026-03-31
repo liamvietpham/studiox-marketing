@@ -30,6 +30,7 @@ export function ContactPageView({
 
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-24">
           <section className="lg:col-span-7">
+            <h2 className="sr-only">Contact form</h2>
             <form className="space-y-12 md:space-y-16" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12">
                 <div className="group relative">
