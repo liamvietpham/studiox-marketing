@@ -26,7 +26,7 @@
     "description": "We are a multidisciplinary studio that designs for permanence. Our approach is surgical, our aesthetic is cinematic, and our results are timeless. We do not just build interfaces; we curate experiences that command attention through restraint rather than noise."
   },
   "coverImage": {
-    "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuAslWfbsRM5webFCoE8yMt96pZ3RcWaWMV3P5famAgcDYYolhAzEC0M2KypXNnXX1FnRDTboUAQ4gBDEI-VjsdVH4UIieVe122wVTml-NBpapEeX6jCX25hOLTmko4PXUEi68E12xzTsUJ2VkTdAzEDlIoZPAPCSjCDX9I-Ks5O6B-jPfMzrbtI1YjdQayRGs7az_IgSdVgpOUC0q2b1JTwCu9SHuJQC6ajQImwpjnYDknqol7Dwb2Z0T0-T5yl7uPeN2NE-u26J4Q",
+    "url": "https://studiox-image.liamhub.io.vn/about/hero.webp",
     "alt": "Dramatic wide shot of a minimalist concrete architecture interior with cinematic sunlight."
   },
   "principles": {
@@ -76,21 +76,21 @@
         "name": "Julian North",
         "role": "Creative Director",
         "offset": "none",
-        "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuAZjFVcNIWvzNKQdOKS-p47pOew80nj7E_VnOEEaSX72z-zyYdpDdu8JIjK8VIJFqDyz_FH77dAHlCdxPr99BhtpusAY07U11Iw_FxdJJeu53jUQKv7rXkuzB8Y0dWSV9ZBJw_FN8hnz8jCa_YjpL2KhI1p0sy0LdViC7KLxj3QYROi7m2Q9eNO5kekyj0aLEhd6oslkBnTW9lfpyxmPxS9QxH2FsdmNu2stqA4_hBXNnShwku8SbgtF3jEVO0KFXrtHCNnPFqMaFc",
+        "imageUrl": "https://studiox-image.liamhub.io.vn/about/team-julian.webp",
         "imageAlt": "Black and white cinematic portrait of a creative director."
       },
       {
         "name": "Elena Voss",
         "role": "Strategy Lead",
         "offset": "medium",
-        "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuAoi2LSNV4ztTga8KGpAQOvuZy4nqEcwd0Qt5thT3clofV69QPcL1r5gepvfuElqyLmlE_DSOjw_T7hJH9Za1F-Zul-p4SVLAyT2e4sEA4tZshEmOMAZTOuWoXKppIgCm2EotoWyDO1jqV7pTTD5avPifDX-SbpKmomHrA9OieRHmAjVv1FaY7BZPyHzxP80x_4et8HlZjl9ZNiZgt53RgAylUU7srwj7VtxT2uZVvWT2wvLYjFfi7bcOShZtSVJEzMMWOPd7PLQdk",
+        "imageUrl": "https://studiox-image.liamhub.io.vn/about/team-elena.webp",
         "imageAlt": "Minimal portrait of a woman with soft natural lighting."
       },
       {
         "name": "Marcus Thorne",
         "role": "Design Principal",
         "offset": "large",
-        "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuAg2sexwujTeE2LVxuuuEC1fJ1jkeVAvHpWyhnhCGM7mb-2kDtjppYgTPskiYBy6gAHIpr1r1PaJ2Cxrfqz_kVWa9oL46gHWhsiQCnmhI3dK4eXjywwnP_vPiCtfosov2ATMptIxF7gVivRE2cEXFwADHjJp1bkmbZEADtl5BX6iKPS5hEY-wqAHRSVv_akIuFOFm6JcXoz5b-ysZTUa8bC1vAmfx68v6HPy2hg-A44c3JZR9rDEKslPk_btHkUuuBaBucWY47g2Q0",
+        "imageUrl": "https://studiox-image.liamhub.io.vn/about/team-marcus.webp",
         "imageAlt": "Artistic profile shot of a designer with dramatic lighting."
       }
     ]
