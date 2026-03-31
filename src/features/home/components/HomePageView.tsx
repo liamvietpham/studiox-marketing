@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 
 import type { HomePageViewModel } from "@/features/home/types";
+import { AppIcon } from "@/shared/components/AppIcon";
 import { PageFrame } from "@/shared/components/PageFrame";
 
 type HomePageViewProps = HomePageViewModel;
@@ -139,12 +140,7 @@ export function HomePageView({
                   className="bg-[#f7f3ee] p-6 transition-colors duration-500 hover:bg-[#ebe8e3] md:p-8"
                   key={service.name}
                 >
-                  <span
-                    aria-hidden
-                    className="material-symbols-outlined mb-6 block text-4xl leading-none text-[#735b25]"
-                  >
-                    {service.icon}
-                  </span>
+                  <AppIcon className="mb-6 block !h-[22.5px] w-auto text-[#735b25]" name={service.icon} />
                   <h4 className="editorial-label mb-3 text-black">{service.name}</h4>
                   <p className="text-sm leading-relaxed text-[#444748]">{service.description}</p>
                 </article>
@@ -155,7 +151,7 @@ export function HomePageView({
 
         <section className="bg-[#f7f3ee] py-20 text-center md:py-28 lg:py-40">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-0">
-            <p className="mb-8 text-4xl text-[#735b25]">"</p>
+            <AppIcon className="mb-8 !h-[29px] w-auto text-[#735b25]" name="quote" />
             <blockquote>
               <p className="headline-font mb-10 text-[clamp(1.8rem,4vw,3.5rem)] leading-tight italic text-black">
                 {content.testimonial.quote}

@@ -44,7 +44,7 @@
       }
     },
     "submitLabel": "Send Inquiry",
-    "submitIcon": "arrow_forward"
+    "submitIcon": "chevron_right"
   },
   "office": {
     "title": "Montreal Studio",

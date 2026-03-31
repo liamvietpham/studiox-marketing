@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 
 import type { BlogPostPageViewModel, BlogPostSection } from "@/features/blog-post/types";
+import { AppIcon } from "@/shared/components/AppIcon";
 import { PageFrame } from "@/shared/components/PageFrame";
 
 type BlogPostPageViewProps = BlogPostPageViewModel;
@@ -143,12 +144,7 @@ export function BlogPostPageView({
             </div>
             <div className="flex gap-4">
               {content.meta.actions.map((action) => (
-                <span
-                  className="material-symbols-outlined cursor-pointer text-xl transition-colors hover:text-[#735b25]"
-                  key={action}
-                >
-                  {action}
-                </span>
+                <AppIcon className="cursor-pointer text-xl transition-colors hover:text-[#735b25]" key={action} name={action} />
               ))}
             </div>
           </div>
@@ -213,9 +209,7 @@ export function BlogPostPageView({
                     type="email"
                   />
                   <button className="absolute bottom-2 right-0" type="submit">
-                    <span className="material-symbols-outlined text-lg">
-                      {content.sidebar.newsletter.buttonIcon}
-                    </span>
+                    <AppIcon className="text-lg" name={content.sidebar.newsletter.buttonIcon} />
                   </button>
                 </form>
               </div>
@@ -231,7 +225,7 @@ export function BlogPostPageView({
               to={content.postNavigation.previous.to}
             >
               <span className="mb-4 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-stone-400">
-                <span className="material-symbols-outlined text-sm">{content.postNavigation.previous.icon}</span>
+                <AppIcon className="text-sm" name={content.postNavigation.previous.icon} />
                 {content.postNavigation.previous.label}
               </span>
               <h3 className="headline-font text-3xl transition-transform duration-500 group-hover:translate-x-2 md:text-4xl">
@@ -244,7 +238,7 @@ export function BlogPostPageView({
             >
               <span className="mb-4 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-stone-400">
                 {content.postNavigation.next.label}
-                <span className="material-symbols-outlined text-sm">{content.postNavigation.next.icon}</span>
+                <AppIcon className="text-sm" name={content.postNavigation.next.icon} />
               </span>
               <h3 className="headline-font text-3xl transition-transform duration-500 group-hover:-translate-x-2 md:text-4xl">
                 {content.postNavigation.next.title}

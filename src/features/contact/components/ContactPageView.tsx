@@ -1,4 +1,5 @@
 import type { ContactPageViewModel } from "@/features/contact/types";
+import { AppIcon } from "@/shared/components/AppIcon";
 import { PageFrame } from "@/shared/components/PageFrame";
 
 type ContactPageViewProps = ContactPageViewModel;
@@ -105,9 +106,10 @@ export function ContactPageView({
                   <span className="bg-black px-10 py-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-white transition-colors duration-500 group-hover:bg-[#735b25] md:px-12 md:py-5">
                     {content.form.submitLabel}
                   </span>
-                  <span className="material-symbols-outlined text-black transition-transform duration-500 group-hover:translate-x-2">
-                    {content.form.submitIcon}
-                  </span>
+                  <AppIcon
+                    className="!h-[15px] w-auto text-black transition-transform duration-500 group-hover:translate-x-2"
+                    name={content.form.submitIcon}
+                  />
                 </button>
               </div>
             </form>
@@ -123,7 +125,7 @@ export function ContactPageView({
                   ))}
                 </div>
                 <div className="mt-10 flex items-center gap-4 text-[#735b25] md:mt-12">
-                  <span className="material-symbols-outlined text-sm">{content.office.scheduleIcon}</span>
+                  <AppIcon className="text-sm" name={content.office.scheduleIcon} />
                   <span className="text-[10px] font-semibold uppercase tracking-[0.1em]">
                     {content.office.scheduleLabel}
                   </span>

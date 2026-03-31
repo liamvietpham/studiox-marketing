@@ -1,6 +1,30 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import "./index.css";
 
+export const links = () => [
+  {
+    rel: "preload",
+    href: "/fonts/manrope-latin.woff2",
+    as: "font",
+    type: "font/woff2",
+    crossOrigin: "anonymous",
+  },
+  {
+    rel: "preload",
+    href: "/fonts/noto-serif-latin.woff2",
+    as: "font",
+    type: "font/woff2",
+    crossOrigin: "anonymous",
+  },
+  {
+    rel: "preload",
+    href: "/fonts/noto-serif-italic-latin.woff2",
+    as: "font",
+    type: "font/woff2",
+    crossOrigin: "anonymous",
+  },
+];
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">

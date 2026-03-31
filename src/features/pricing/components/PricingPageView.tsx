@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 
 import type { PricingPageViewModel, PricingPlan } from "@/features/pricing/types";
+import { AppIcon } from "@/shared/components/AppIcon";
 import { PageFrame } from "@/shared/components/PageFrame";
 
 type PricingPageViewProps = PricingPageViewModel;
@@ -36,7 +37,7 @@ function PlanCard({ plan, isFirst, isLast }: { plan: PricingPlan; isFirst: boole
       <ul className="mb-14 flex flex-grow flex-col gap-5">
         {plan.features.map((feature) => (
           <li className="flex items-center gap-3" key={feature}>
-            <span className="material-symbols-outlined text-[18px] text-[#735b25]">check</span>
+            <AppIcon className="text-[18px] text-[#735b25]" name="check" />
             <span className="text-[13px] text-black">{feature}</span>
           </li>
         ))}

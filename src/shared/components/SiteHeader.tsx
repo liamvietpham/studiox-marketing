@@ -53,19 +53,19 @@ export function SiteHeader({
 
   return (
     <nav className="glass-nav fixed left-0 right-0 top-0 z-50 border-b border-black/5">
-      <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-4 py-4 sm:px-6 lg:px-10 lg:py-7">
-        <Link className="headline-font text-lg tracking-tight text-black sm:text-xl" to="/">
+      <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-4 py-4 sm:px-6 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:px-10 lg:py-7">
+        <Link className="headline-font text-lg tracking-tight text-black sm:text-xl lg:justify-self-start" to="/">
           {brandName}
         </Link>
 
-        <div className="hidden items-center gap-8 lg:flex xl:gap-12">
+        <div className="hidden items-center gap-8 lg:flex lg:justify-self-center xl:gap-12">
           {navItems.map((item) => (
             <NavigationLink item={item} key={item.label} />
           ))}
         </div>
 
         {shouldShowCta ? (
-          <div className="hidden lg:block">
+          <div className="hidden lg:block lg:justify-self-end">
             <Link
               className="btn-atelier editorial-label bg-black px-6 py-3 text-white hover:opacity-75"
               to={cta.to}

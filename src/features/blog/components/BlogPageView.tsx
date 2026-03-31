@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 
 import type { BlogArticle, BlogPageViewModel } from "@/features/blog/types";
+import { AppIcon } from "@/shared/components/AppIcon";
 import { PageFrame } from "@/shared/components/PageFrame";
 
 type BlogPageViewProps = BlogPageViewModel;
@@ -23,7 +24,7 @@ function BlogCard({ article }: { article: BlogArticle }) {
         <p className="line-clamp-2 text-sm leading-relaxed text-[#444748]">{article.excerpt}</p>
         <div className="flex items-center justify-between pt-4 text-[10px] font-semibold uppercase tracking-[0.15em] text-stone-400">
           <span>{article.date}</span>
-          <span className="material-symbols-outlined text-sm">north_east</span>
+          <AppIcon className="text-sm" name="north_east" />
         </div>
       </div>
     </>
@@ -105,9 +106,7 @@ export function BlogPageView({
                   to={content.featuredArticle.to}
                 >
                   {content.featuredArticle.readMoreLabel}
-                  <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">
-                    arrow_forward
-                  </span>
+                  <AppIcon className="text-sm transition-transform group-hover:translate-x-1" name="arrow_forward" />
                 </Link>
               </div>
             </div>
@@ -140,9 +139,7 @@ export function BlogPageView({
           aria-label="Pagination preview"
           className="mb-24 mt-20 flex items-center justify-center gap-6 border-t border-[#c4c7c7]/30 pt-10 md:mt-32 md:gap-12 md:pt-16"
         >
-          <span aria-hidden className="material-symbols-outlined pointer-events-none text-stone-300">
-            {content.pagination.prevLabel}
-          </span>
+          <AppIcon className="pointer-events-none text-stone-300" name={content.pagination.prevLabel} />
           <div className="flex gap-5 md:gap-8">
             {content.pagination.pages.map((page, index) => (
               <span
@@ -156,9 +153,7 @@ export function BlogPageView({
               </span>
             ))}
           </div>
-          <span aria-hidden className="material-symbols-outlined text-black">
-            {content.pagination.nextLabel}
-          </span>
+          <AppIcon className="text-black" name={content.pagination.nextLabel} />
         </div>
       </main>
     </PageFrame>
