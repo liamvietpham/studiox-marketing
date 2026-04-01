@@ -74,6 +74,19 @@ The recommended production setup for this repo is:
 - use one CloudFront distribution for the site and a second CloudFront distribution for images
 - let the site distribution rewrite clean URLs such as `/about` to `/about/index.html`
 
+### Request And Response Flow
+
+The diagram below shows how a browser request is resolved in production for the prerendered frontend:
+
+![StudioX request and response flow through CloudFront and S3](docs/architecture/architecture-fe-cloudfront-s3.svg)
+
+At a high level:
+
+- the browser sends the request to CloudFront
+- CloudFront rewrites clean URLs and checks the edge cache
+- on a cache miss, CloudFront fetches the prerendered file from the private S3 origin
+- CloudFront caches the origin response and returns the final response to the browser
+
 ### S3 Configuration
 
 For a private S3 origin setup:

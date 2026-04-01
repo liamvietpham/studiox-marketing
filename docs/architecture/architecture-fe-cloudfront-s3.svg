@@ -1,0 +1,240 @@
+<svg width="1720" height="1260" viewBox="0 0 1720 1260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="dotGrid" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.8" fill="#CBE9F7"/>
+    </pattern>
+
+    <filter id="softShadow" x="-40" y="-40" width="1800" height="1400" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="10"/>
+      <feGaussianBlur stdDeviation="12"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.231373 0 0 0 0 0.658824 0 0 0 0 0.862745 0 0 0 0.12 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M1 1L10 6L1 11V1Z" fill="#55AFD8"/>
+    </marker>
+
+    <marker id="arrowBlueSmall" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1L8 5L1 9V1Z" fill="#55AFD8"/>
+    </marker>
+
+    <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="awsS3Gradient">
+      <stop stop-color="#1B660F" offset="0%"/>
+      <stop stop-color="#6CAE3E" offset="100%"/>
+    </linearGradient>
+
+    <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="awsCloudFrontGradient">
+      <stop stop-color="#4D27A8" offset="0%"/>
+      <stop stop-color="#A166FF" offset="100%"/>
+    </linearGradient>
+
+    <style>
+      .title { font: 700 30px "Manrope", Arial, sans-serif; fill: #3C4A56; }
+      .subtitle { font: 500 17px "Manrope", Arial, sans-serif; fill: #5F7789; }
+      .card-title { font: 700 34px "Manrope", Arial, sans-serif; fill: #3C4A56; }
+      .card-copy { font: 600 18px "Manrope", Arial, sans-serif; fill: #607789; }
+      .section-title { font: 700 20px "Manrope", Arial, sans-serif; fill: #4D5C68; }
+      .section-copy { font: 600 15px "Manrope", Arial, sans-serif; fill: #6C8294; }
+      .step-copy { font: 700 16px "Manrope", Arial, sans-serif; fill: #4D5C68; }
+      .label-copy { font: 700 15px "Manrope", Arial, sans-serif; fill: #496274; }
+      .note-copy { font: 600 14px "Manrope", Arial, sans-serif; fill: #6C8294; }
+      .mono-copy { font: 700 14px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; fill: #4D5C68; }
+      .blue-line { stroke: #379FD6; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .soft-line { stroke: #7CC8E8; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .dash-line { stroke: #2FA6DB; stroke-width: 3; stroke-dasharray: 10 8; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+
+    <symbol id="awsCloudFrontSymbol" viewBox="0 0 24 24">
+      <g fill="none" fill-rule="evenodd">
+        <g fill="url(#awsCloudFrontGradient)">
+          <rect x="0" y="0" width="24" height="24"/>
+        </g>
+        <path d="M16,15.4980737 C16,15.2219556 15.775,14.9978597 15.5,14.9978597 C15.225,14.9978597 15,15.2219556 15,15.4980737 C15,15.7741919 15.225,15.9982877 15.5,15.9982877 C15.775,15.9982877 16,15.7741919 16,15.4980737 M17,15.4980737 C17,16.3254277 16.327,16.9987158 15.5,16.9987158 C14.673,16.9987158 14,16.3254277 14,15.4980737 C14,14.6707197 14.673,13.9974316 15.5,13.9974316 C16.327,13.9974316 17,14.6707197 17,15.4980737 M9,11.4963614 C9,11.2202433 8.775,10.9961474 8.5,10.9961474 C8.225,10.9961474 8,11.2202433 8,11.4963614 C8,11.7724796 8.225,11.9965755 8.5,11.9965755 C8.775,11.9965755 9,11.7724796 9,11.4963614 M10,11.4963614 C10,12.3237155 9.327,12.9970035 8.5,12.9970035 C7.673,12.9970035 7,12.3237155 7,11.4963614 C7,10.6690074 7.673,9.99571934 8.5,9.99571934 C9.327,9.99571934 10,10.6690074 10,11.4963614 M12,7.49464918 C12,7.77076733 12.225,7.99486321 12.5,7.99486321 C12.775,7.99486321 13,7.77076733 13,7.49464918 C13,7.21853103 12.775,6.99443515 12.5,6.99443515 C12.225,6.99443515 12,7.21853103 12,7.49464918 M11,7.49464918 C11,6.66729517 11.673,5.99400708 12.5,5.99400708 C13.327,5.99400708 14,6.66729517 14,7.49464918 C14,8.32200319 13.327,8.99529128 12.5,8.99529128 C11.673,8.99529128 11,8.32200319 11,7.49464918 M19,11.9965755 C19,9.73960976 17.903,7.63971125 16.101,6.33215177 C15.917,6.27312651 15.407,6.42319072 14.566,6.78434525 C14.415,6.84837265 14.287,6.90239576 14.197,6.93540989 L13.857,5.99400708 C13.935,5.96699552 14.044,5.91897498 14.173,5.86395143 C14.394,5.76991119 14.611,5.67987267 14.823,5.59983842 C13.939,5.20867105 12.979,4.99357901 12,4.99357901 C11.313,4.99357901 10.642,5.09162097 10.002,5.28470358 C9.956,5.29770915 9.915,5.32071899 9.87,5.33472499 C10.22,5.46578106 10.637,5.6348534 11.132,5.85694844 L10.724,6.76933883 C9.518,6.22810725 8.828,6.02702121 8.507,5.9519891 C6.692,7.00443943 5.429,8.82721936 5.104,10.9291187 C5.426,10.8871007 5.751,10.86209 6.097,10.8530862 L6.122,11.8535143 C5.725,11.8635185 5.363,11.9055365 5.001,11.9645618 C5.001,11.9745661 5,11.9855708 5,11.9965755 C5,14.29756 6.125,16.4174671 7.976,17.7180236 C7.775,17.0167235 7.604,16.1773644 7.604,15.3310022 C7.604,15.1749354 7.599,15.0098648 7.594,14.8427933 C7.578,14.3655891 7.562,13.8723781 7.65,13.4231859 L8.631,13.6162685 C8.564,13.9534128 8.579,14.388599 8.593,14.8097792 C8.599,14.9888558 8.604,15.1639307 8.604,15.3310022 C8.604,16.2293866 8.853,17.3548682 9.277,18.4433339 C10.504,18.9595548 11.859,19.1086186 13.154,18.8935266 C13.266,18.6874384 13.402,18.4783489 13.546,18.2662582 C13.76,17.9501229 13.981,17.6239833 14.067,17.3278566 L15.028,17.6069761 C14.938,17.9191096 14.774,18.2012303 14.601,18.4743472 C15.199,18.2352449 15.768,17.934116 16.279,17.5369461 C18.009,16.1983734 19,14.1785091 19,11.9965755 M20,11.9965755 C20,14.4906426 18.867,16.7986302 16.892,18.3272843 C16.193,18.8695163 15.416,19.2876952 14.582,19.5688155 C13.76,19.8539375 12.89,20 12,20 C10.686,20 9.381,19.6718596 8.225,19.0525946 C5.619,17.6569975 4,14.9538408 4,11.9965755 C4,11.8315048 4.004,11.6674346 4.018,11.5063657 C4.212,8.17393984 6.502,5.28270273 9.715,4.32629349 C11.729,3.71903366 14.052,3.96513896 15.91,5.01658886 C18.433,6.43019372 20,9.10433794 20,11.9965755 M11.075,8.93526559 L10.419,8.18194326 C9.903,8.63013503 9.765,8.86023349 9.534,9.24039615 C9.467,9.35144367 9.389,9.48149932 9.285,9.64056738 L10.123,10.1858007 C10.233,10.0157279 10.317,9.87766883 10.39,9.75861789 C10.594,9.42147363 10.678,9.28241413 11.075,8.93526559 M10.649,11.3663058 L10.325,12.3117103 C11.438,12.6948743 12.411,13.3071362 13.387,14.2375343 L14.076,13.5132244 C12.993,12.4797822 11.904,11.7974903 10.649,11.3663058 M13.285,9.07432509 L14.121,8.52509009 C15.083,9.99271806 15.624,11.6044077 15.73,13.3161401 L14.732,13.3781666 C14.638,11.8425096 14.15,10.3938897 13.285,9.07432509" fill="#FFFFFF"/>
+      </g>
+    </symbol>
+
+    <symbol id="awsS3Symbol" viewBox="0 0 24 24">
+      <g fill="none" fill-rule="evenodd">
+        <g fill="url(#awsS3Gradient)">
+          <rect x="0" y="0" width="24" height="24"/>
+        </g>
+        <path d="M18.1589495,13.3535719 L18.1863657,13.1878956 C18.3488322,13.2809069 18.4818516,13.3642294 18.5864393,13.4339879 C18.4676358,13.4155794 18.3204006,13.3874822 18.1589495,13.3535719 L18.1589495,13.3535719 Z M11.9202386,11.7956336 C11.9202386,12.0620721 11.6927855,12.2800672 11.412531,12.2800672 C11.1332918,12.2800672 10.9048234,12.0620721 10.9048234,11.7956336 C10.9048234,11.5282263 11.1332918,11.3112001 11.412531,11.3112001 C11.6927855,11.3112001 11.9202386,11.5282263 11.9202386,11.7956336 L11.9202386,11.7956336 Z M16.3383101,18.1669035 C16.2519998,18.214378 16.064148,18.2812298 15.9067586,18.338393 L15.6417353,18.4352797 C15.3706194,18.5370107 15.0487328,18.6290531 14.6811525,18.7085002 C13.7611863,18.9109934 12.4878556,19.0311329 11.2774807,19.0311329 C7.47881247,19.0311329 6.51619886,18.4033071 6.48167475,18.1988761 L5.21037492,8.83477587 C6.62687912,9.52945356 9.07504516,9.8578995 11.412531,9.8578995 C13.5113942,9.8578995 16.2956626,9.56045731 17.883772,8.819274 L17.1760276,13.1006976 C15.692506,12.6656763 13.9236527,11.8818628 12.872698,11.4022736 C12.6909387,10.7918874 12.1091058,10.342333 11.412531,10.342333 C10.5727826,10.342333 9.88940815,10.9934117 9.88940815,11.7956336 C9.88940815,12.5968867 10.5727826,13.2489342 11.412531,13.2489342 C12.0126413,13.2489342 12.5274568,12.9127374 12.7762336,12.4312104 C13.9063907,12.9408345 15.5869028,13.6636094 17.015592,14.0676269 L16.3383101,18.1669035 Z M11.412531,5.96886707 C15.7442922,5.96886707 18.0878705,6.9919907 18.1152867,7.42022994 L18.111225,7.44348275 C18.0624851,7.87559747 15.7249993,8.88903242 11.412531,8.88903242 C7.30416106,8.88903242 5.05400098,7.93954269 5.02150769,7.44057615 L5.01947686,7.42119881 C5.03775433,6.92417 7.29096066,5.96886707 11.412531,5.96886707 L11.412531,5.96886707 Z M18.3569555,12.1608965 L19.1296865,7.50452138 L19.1296865,7.50355251 C19.1317173,7.47836197 19.135779,7.45510916 19.135779,7.42894975 C19.135779,5.64623434 14.5176706,5 11.412531,5 C7.84233111,5 4,5.76056065 4,7.42894975 C4,7.45026482 4.00304625,7.47061103 4.00406166,7.49095724 L5.47742911,18.3393618 C5.54749276,18.7501615 5.76072995,20 11.2774807,20 C12.5599501,20 13.9175602,19.8711407 14.9086055,19.6531456 C15.3239103,19.5620721 15.6955523,19.4554967 16.0133772,19.3363261 L16.2662156,19.2442837 C16.7932161,19.0543857 17.3374786,18.8586746 17.3324016,18.3374241 L18.0005448,14.3117814 C18.4544354,14.4057615 18.8017074,14.4493605 19.0525149,14.4493605 C19.5216367,14.4493605 19.7003498,14.3185635 19.8242305,14.1780778 C19.9724811,14.0094949 20.0293443,13.797313 19.9856815,13.5802868 C19.8973404,13.1481721 19.4282185,12.7354347 18.3569555,12.1608965 L18.3569555,12.1608965 Z" fill="#FFFFFF"/>
+      </g>
+    </symbol>
+  </defs>
+
+  <rect width="1720" height="1260" fill="#EAF8FD"/>
+  <rect width="1720" height="1260" fill="url(#dotGrid)"/>
+  <circle cx="-20" cy="1220" r="160" fill="#D6EFF9"/>
+
+  <text x="54" y="56" class="title">StudioX Request / Response Flow</text>
+  <text x="54" y="88" class="subtitle">
+    <tspan x="54" dy="0">Runtime path for a prerendered static site: the browser always hits CloudFront first,</tspan>
+    <tspan x="54" dy="24">then CloudFront serves from cache or fetches from S3.</tspan>
+  </text>
+
+  <g filter="url(#softShadow)">
+    <rect x="40" y="170" width="300" height="930" rx="14" fill="#FDFEFE" stroke="#8FD0EA" stroke-width="3"/>
+    <rect x="56" y="152" width="300" height="930" rx="14" fill="none" class="dash-line"/>
+
+    <rect x="560" y="170" width="480" height="930" rx="14" fill="#FDFEFE" stroke="#8FD0EA" stroke-width="3"/>
+    <rect x="576" y="152" width="480" height="930" rx="14" fill="none" class="dash-line"/>
+
+    <rect x="1320" y="170" width="360" height="980" rx="14" fill="#FDFEFE" stroke="#8FD0EA" stroke-width="3"/>
+    <rect x="1336" y="152" width="360" height="980" rx="14" fill="none" class="dash-line"/>
+  </g>
+
+  <path d="M340 300H558" class="soft-line" marker-end="url(#arrowBlue)"/>
+  <path d="M560 228H340" class="soft-line" marker-end="url(#arrowBlue)"/>
+  <path d="M1040 530H1318" class="soft-line" marker-end="url(#arrowBlue)"/>
+  <path d="M1320 660H1042" class="soft-line" marker-end="url(#arrowBlue)"/>
+  <path d="M560 760H342" class="soft-line" marker-end="url(#arrowBlue)"/>
+
+  <rect x="386" y="248" width="128" height="38" rx="19" fill="#FFFFFF" stroke="#B9DFF0"/>
+  <text x="450" y="272" text-anchor="middle" class="label-copy">1. GET /about</text>
+
+  <rect x="352" y="180" width="196" height="38" rx="19" fill="#FFFFFF" stroke="#B9DFF0"/>
+  <text x="450" y="204" text-anchor="middle" class="label-copy">4a. Cache hit response</text>
+
+  <rect x="1048" y="482" width="264" height="38" rx="19" fill="#FFFFFF" stroke="#B9DFF0"/>
+  <text x="1180" y="506" text-anchor="middle" class="label-copy">4b. Cache miss -&gt; origin fetch</text>
+
+  <rect x="1048" y="676" width="264" height="38" rx="19" fill="#FFFFFF" stroke="#B9DFF0"/>
+  <text x="1180" y="700" text-anchor="middle" class="label-copy">5. S3 returns prerendered files</text>
+
+  <rect x="340" y="820" width="220" height="56" rx="20" fill="#FFFFFF" stroke="#B9DFF0"/>
+  <text x="450" y="845" text-anchor="middle" class="label-copy">
+    <tspan x="450" dy="0">6. Cache and</tspan>
+    <tspan x="450" dy="18">return 200</tspan>
+  </text>
+
+  <g>
+    <rect x="118" y="328" width="92" height="72" rx="8" fill="none" class="blue-line"/>
+    <path d="M118 348H210" class="blue-line"/>
+    <circle cx="136" cy="338" r="3" fill="#379FD6"/>
+    <circle cx="148" cy="338" r="3" fill="#379FD6"/>
+    <circle cx="160" cy="338" r="3" fill="#379FD6"/>
+    <path d="M136 366H184" class="blue-line"/>
+    <path d="M136 383H174" class="blue-line"/>
+    <circle cx="200" cy="359" r="18" fill="#FDFEFE" stroke="#379FD6" stroke-width="3"/>
+    <path d="M200 348V353" class="blue-line"/>
+    <path d="M200 365V370" class="blue-line"/>
+    <path d="M189 359H194" class="blue-line"/>
+    <path d="M206 359H211" class="blue-line"/>
+    <path d="M192 351L195 354" class="blue-line"/>
+    <path d="M205 364L208 367" class="blue-line"/>
+    <path d="M208 351L205 354" class="blue-line"/>
+    <path d="M195 364L192 367" class="blue-line"/>
+    <circle cx="200" cy="359" r="6" fill="#379FD6"/>
+
+    <text x="190" y="484" text-anchor="middle" class="card-title">User Browser</text>
+    <text x="190" y="528" text-anchor="middle" class="card-copy">Requests pages and assets</text>
+    <text x="190" y="562" text-anchor="middle" class="section-copy">
+      <tspan x="190" dy="0">Examples:</tspan>
+      <tspan x="190" dy="22">/, /about, /assets/app.css</tspan>
+    </text>
+
+    <rect x="72" y="610" width="236" height="132" rx="12" fill="#FDFEFE" stroke="#379FD6" stroke-width="3"/>
+    <text x="190" y="642" text-anchor="middle" class="section-title">Final response</text>
+    <foreignObject x="98" y="670" width="184" height="50">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="height:50px; display:flex; align-items:center; justify-content:center; text-align:center; color:#6C8294; font:600 14px Manrope, Arial, sans-serif; line-height:1.45;">
+        HTML first, then CSS, JS, and images through the same CDN flow
+      </div>
+    </foreignObject>
+  </g>
+
+  <g transform="translate(80 0)">
+    <use href="#awsCloudFrontSymbol" x="666" y="214" width="112" height="112"/>
+    <text x="720" y="376" text-anchor="middle" class="card-title">Amazon CloudFront</text>
+    <text x="720" y="418" text-anchor="middle" class="card-copy">
+      <tspan x="720" dy="0">Entry point for every</tspan>
+      <tspan x="720" dy="24">browser request</tspan>
+    </text>
+
+    <rect x="556" y="458" width="330" height="136" rx="12" fill="#FDFEFE" stroke="#379FD6" stroke-width="3"/>
+    <text x="582" y="492" class="section-title">2. Viewer request handling</text>
+    <text x="582" y="528" class="section-copy">Accept HTTPS request at the edge</text>
+    <text x="582" y="552" class="section-copy">location and run clean URL rewrite.</text>
+    <text x="582" y="580" class="mono-copy">/about -&gt; /about/index.html</text>
+
+    <rect x="541" y="630" width="360" height="140" rx="12" fill="#FDFEFE" stroke="#379FD6" stroke-width="3"/>
+    <text x="567" y="664" class="section-title">3. Edge cache lookup</text>
+    <foreignObject x="567" y="684" width="308" height="58">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="height:58px; color:#6C8294; font:600 14px Manrope, Arial, sans-serif; line-height:1.45;">
+        Check whether prerendered HTML, CSS, JS, or images already exist in the edge cache.
+      </div>
+    </foreignObject>
+
+    <rect x="556" y="820" width="148" height="92" rx="12" fill="#FDFEFE" stroke="#379FD6" stroke-width="3"/>
+    <foreignObject x="574" y="838" width="112" height="56">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="height:56px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; line-height:1.35;">
+        <div style="color:#4D5C68; font:700 16px Manrope, Arial, sans-serif;">4a. Cache hit</div>
+        <div style="margin-top:6px; color:#6C8294; font:600 14px Manrope, Arial, sans-serif;">Return object</div>
+      </div>
+    </foreignObject>
+
+    <rect x="738" y="820" width="148" height="92" rx="12" fill="#FDFEFE" stroke="#379FD6" stroke-width="3"/>
+    <foreignObject x="756" y="838" width="112" height="56">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="height:56px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; line-height:1.35;">
+        <div style="color:#4D5C68; font:700 16px Manrope, Arial, sans-serif;">4b. Cache miss</div>
+        <div style="margin-top:6px; color:#6C8294; font:600 14px Manrope, Arial, sans-serif;">Fetch from S3</div>
+      </div>
+    </foreignObject>
+
+    <path d="M721 594V630" class="soft-line" marker-end="url(#arrowBlueSmall)"/>
+    <path d="M690 770L630 820" class="soft-line" marker-end="url(#arrowBlueSmall)"/>
+    <path d="M752 770L812 820" class="soft-line" marker-end="url(#arrowBlueSmall)"/>
+
+    <rect x="556" y="960" width="330" height="112" rx="12" fill="#FDFEFE" stroke="#379FD6" stroke-width="3"/>
+    <foreignObject x="582" y="984" width="278" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="height:64px; display:flex; align-items:center; justify-content:center; text-align:center; color:#4D5C68; font:700 18px Manrope, Arial, sans-serif; line-height:1.35;">
+        6. Cache origin response, then send 200 OK to the browser
+      </div>
+    </foreignObject>
+  </g>
+
+  <g transform="translate(240 0)">
+    <use href="#awsS3Symbol" x="1204" y="214" width="112" height="112"/>
+    <text x="1260" y="376" text-anchor="middle" class="card-title">Amazon S3</text>
+    <text x="1260" y="418" text-anchor="middle" class="card-copy">
+      <tspan x="1260" dy="0">Private origin bucket</tspan>
+      <tspan x="1260" dy="24">for the static site</tspan>
+    </text>
+
+    <rect x="1138" y="462" width="244" height="116" rx="12" fill="#FDFEFE" stroke="#379FD6" stroke-width="3"/>
+    <text x="1164" y="496" class="section-title">Origin access control</text>
+    <foreignObject x="1164" y="514" width="192" height="40">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="height:40px; color:#6C8294; font:600 14px Manrope, Arial, sans-serif; line-height:1.45;">
+        Only CloudFront can read these objects.
+      </div>
+    </foreignObject>
+
+    <rect x="1138" y="600" width="244" height="136" rx="12" fill="#FDFEFE" stroke="#379FD6" stroke-width="3"/>
+    <text x="1164" y="634" class="section-title">Prerendered site files</text>
+    <text x="1164" y="664" class="mono-copy">site/index.html</text>
+    <text x="1164" y="688" class="mono-copy">site/about/index.html</text>
+    <text x="1164" y="712" class="mono-copy">site/assets/*</text>
+
+    <rect x="1138" y="780" width="244" height="108" rx="12" fill="#FDFEFE" stroke="#379FD6" stroke-width="3"/>
+    <text x="1164" y="806" class="section-title">5. Origin response</text>
+    <foreignObject x="1164" y="824" width="192" height="40">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="height:40px; color:#6C8294; font:600 14px Manrope, Arial, sans-serif; line-height:1.45;">
+        Return the requested file back to CloudFront.
+      </div>
+    </foreignObject>
+  </g>
+
+  <g>
+    <rect x="54" y="1120" width="1612" height="100" rx="14" fill="#FFFFFF" fill-opacity="0.82" stroke="#D3E5EF"/>
+    <text x="84" y="1152" class="section-title">Flow summary</text>
+    <foreignObject x="84" y="1168" width="1548" height="48">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="height:48px; color:#6C8294; font:600 15px Manrope, Arial, sans-serif; line-height:1.5;">
+        1. Browser requests a route or asset - 2. CloudFront receives the request and rewrites clean URLs. 3. Edge cache lookup - 4a. If hit, respond immediately - 4b. If miss, request S3. 5. S3 returns the prerendered file - 6. CloudFront caches the object and returns it.
+      </div>
+    </foreignObject>
+  </g>
+</svg>
