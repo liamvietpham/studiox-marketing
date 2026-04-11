@@ -60,7 +60,7 @@ Before using it, configure these GitHub repository settings:
 
 - `Secrets`: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`, `AWS_S3_BUCKET`, `AWS_CLOUDFRONT_DISTRIBUTION_ID`
 
-In the current workflow, `AWS_CLOUDFRONT_DISTRIBUTION_ID` should point to the site distribution. The images distribution is expected to be managed separately or by another workflow if you also want automated invalidation for image assets.
+In the current workflow, `AWS_CLOUDFRONT_DISTRIBUTION_ID` should point to the single CloudFront distribution that serves both the site pages and the `/studiox/images/*` image paths.
 
 You can also run the workflow manually from the `Actions` tab with `workflow_dispatch`.
 
@@ -71,8 +71,11 @@ The recommended production setup for this repo is:
 - keep one S3 bucket private
 - store website files under the `site/` prefix
 - store shared image assets under the `images/` prefix
-- use one CloudFront distribution for the site and a second CloudFront distribution for images
-- let the site distribution rewrite clean URLs such as `/about` to `/about/index.html`
+- use one CloudFront distribution with two origins that both point to the same private S3 bucket
+- use the default CloudFront behavior for the `site/` origin
+- use a dedicated `studiox/images/*` behavior for the `images/` origin
+- rewrite clean page URLs such as `/about` to `/about/index.html`
+- rewrite image URLs such as `/studiox/images/about/hero.webp` to `/about/hero.webp` before CloudFront forwards the request to the `images/` origin
 
 ### Request And Response Flow
 
@@ -83,7 +86,8 @@ The diagram below shows how a browser request is resolved in production for the 
 At a high level:
 
 - the browser sends the request to CloudFront
-- CloudFront rewrites clean URLs and checks the edge cache
+- CloudFront matches `/studiox/images/*` requests to the images behavior and rewrites the URI before checking the edge cache
+- all other requests go through the default behavior, which rewrites clean page URLs for the site origin
 - on a cache miss, CloudFront fetches the prerendered file from the private S3 origin
 - CloudFront caches the origin response and returns the final response to the browser
 
@@ -96,6 +100,7 @@ For a private S3 origin setup:
 - use `Bucket owner enforced` for object ownership if available
 - upload site files only through CI or trusted AWS credentials
 - you do not need `Static website hosting` when using private S3 with OAC
+- when you create each CloudFront origin, `Origin access` must be `Origin access control settings (recommended)` so CloudFront can sign requests to the private bucket
 
 The GitHub Actions workflow uploads to:
 
@@ -116,14 +121,14 @@ s3://<AWS_S3_BUCKET>/
     └── brand/logo.svg
 ```
 
-Use a bucket policy that allows the site distribution to read `site/*` and the images distribution to read `images/*`:
+Use a bucket policy that allows the same CloudFront distribution to read both `site/*` and `images/*`:
 
 ```json
 {
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "AllowSiteDistributionReadSitePrefix",
+      "Sid": "AllowCloudFrontReadSitePrefix",
       "Effect": "Allow",
       "Principal": {
         "Service": "cloudfront.amazonaws.com"
@@ -132,12 +137,12 @@ Use a bucket policy that allows the site distribution to read `site/*` and the i
       "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/site/*",
       "Condition": {
         "StringEquals": {
-          "AWS:SourceArn": "arn:aws:cloudfront::YOUR_ACCOUNT_ID:distribution/YOUR_SITE_DISTRIBUTION_ID"
+          "AWS:SourceArn": "arn:aws:cloudfront::YOUR_ACCOUNT_ID:distribution/YOUR_DISTRIBUTION_ID"
         }
       }
     },
     {
-      "Sid": "AllowImagesDistributionReadImagesPrefix",
+      "Sid": "AllowCloudFrontReadImagesPrefix",
       "Effect": "Allow",
       "Principal": {
         "Service": "cloudfront.amazonaws.com"
@@ -146,7 +151,7 @@ Use a bucket policy that allows the site distribution to read `site/*` and the i
       "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/images/*",
       "Condition": {
         "StringEquals": {
-          "AWS:SourceArn": "arn:aws:cloudfront::YOUR_ACCOUNT_ID:distribution/YOUR_IMAGES_DISTRIBUTION_ID"
+          "AWS:SourceArn": "arn:aws:cloudfront::YOUR_ACCOUNT_ID:distribution/YOUR_DISTRIBUTION_ID"
         }
       }
     }
@@ -154,53 +159,58 @@ Use a bucket policy that allows the site distribution to read `site/*` and the i
 }
 ```
 
-### Site CloudFront Distribution
+### One CloudFront Distribution
 
-Create the site distribution against the regular S3 bucket origin, not the S3 website endpoint:
+Create one distribution against the regular S3 bucket origin, not the S3 website endpoint.
 
-- `Origin domain`: `YOUR_BUCKET_NAME.s3.<region>.amazonaws.com`
-- `Origin path`: `/site`
-- `Origin access`: `Origin access control settings (recommended)`
-- `Signing behavior`: `Sign requests`
-- `Default root object` must be `index.html`
-- `Path pattern`: `Default (*)`
+Common distribution settings:
+
+- `Default root object`: `index.html`
 - `Viewer protocol policy`: `Redirect HTTP to HTTPS`
 - `Allowed methods`: `GET, HEAD`
 - `Compress objects automatically`: `On`
+- `Origin access` must use `Origin access control settings (recommended)` for every S3 origin in this distribution
 - do not use the `s3-website-...amazonaws.com` endpoint for this private setup
-- `Origin path` must be `/site`, not `/*`
 - do not prefix the default root object with `/`
 
-### Images CloudFront Distribution
+Create these two origins:
 
-Create a second distribution for images that points to the same private S3 bucket:
+- `site` origin
+  - `Origin domain`: `YOUR_BUCKET_NAME.s3.<region>.amazonaws.com`
+  - `Origin path`: `/site`
+  - `Origin access`: `Origin access control settings (recommended)`
+  - `Signing behavior`: `Sign requests`
+- `images` origin
+  - `Origin domain`: `YOUR_BUCKET_NAME.s3.<region>.amazonaws.com`
+  - `Origin path`: `/images`
+  - `Origin access`: `Origin access control settings (recommended)`
+  - `Signing behavior`: `Sign requests`
 
-- `Origin domain`: `YOUR_BUCKET_NAME.s3.<region>.amazonaws.com`
-- `Origin path`: `/images`
-- `Origin access`: `Origin access control settings (recommended)`
-- `Signing behavior`: `Sign requests`
-- `Path pattern`: `Default (*)`
-- `Viewer protocol policy`: `Redirect HTTP to HTTPS`
-- `Allowed methods`: `GET, HEAD`
-- `Compress objects automatically`: `On`
+Create these behaviors in this order:
 
-With this setup, an image URL such as:
+- `studiox/images/*` -> `images` origin
+- `Default (*)` -> `site` origin
+
+The default behavior serves the site pages and static assets uploaded under `site/`. The `studiox/images/*` behavior serves shared images uploaded under `images/`.
+
+With this setup, the following URLs map to S3 keys:
 
 ```text
-https://images.example.com/hero-01.jpg
+https://www.example.com/
+-> s3://<AWS_S3_BUCKET>/site/index.html
+
+https://www.example.com/about
+-> s3://<AWS_S3_BUCKET>/site/about/index.html
+
+https://www.example.com/studiox/images/about/hero.webp
+-> s3://<AWS_S3_BUCKET>/images/about/hero.webp
 ```
 
-maps to:
+### CloudFront Functions
 
-```text
-s3://<AWS_S3_BUCKET>/images/hero-01.jpg
-```
+Because the site is static and stored as `about/index.html`, the default site behavior should rewrite requests before they reach S3.
 
-### CloudFront Function For Clean URLs
-
-Because the site is static and stored as `about/index.html`, the site distribution should rewrite requests before they reach S3.
-
-Create a CloudFront Function and associate it with the `Viewer request` event on the site distribution's `Default (*)` behavior:
+Create a CloudFront Function and associate it with the `Viewer request` event on the `Default (*)` behavior:
 
 ```js
 function handler(event) {
@@ -223,7 +233,29 @@ This maps:
 - `/about` -> `/about/index.html`
 - `/about/` -> `/about/index.html`
 
-Make sure the function is published to `LIVE` before associating it with the distribution.
+Create a second CloudFront Function and associate it with the `Viewer request` event on the `studiox/images/*` behavior:
+
+```js
+function handler(event) {
+    var request = event.request;
+    var prefix = '/studiox/images';
+
+    if (request.uri.startsWith(prefix + '/')) {
+        request.uri = request.uri.slice(prefix.length);
+    }
+
+    return request;
+}
+```
+
+This maps:
+
+- `/studiox/images/home/hero.webp` -> `/home/hero.webp`
+- `/studiox/images/about/hero.webp` -> `/about/hero.webp`
+
+CloudFront then prepends the `images` origin path, so `/about/hero.webp` becomes `images/about/hero.webp` in S3.
+
+Make sure both functions are published to `LIVE` before associating them with the distribution.
 
 ### Manual Verification Checklist
 
@@ -232,11 +264,13 @@ After the first deployment:
 - confirm `build/client/index.html` exists locally after `yarn build`
 - confirm S3 contains `site/index.html` and nested route files such as `site/about/index.html`
 - confirm S3 contains image assets under `images/`
-- confirm the site CloudFront `Default root object` is `index.html`
-- confirm the site CloudFront function is associated with `Viewer request`
-- open `/`, `/about`, and one blog detail route from the site CloudFront domain
-- open one asset such as `/hero-01.jpg` from the images CloudFront domain
-- if CloudFront serves stale site content, create an invalidation for the site distribution
+- confirm the CloudFront `Default root object` is `index.html`
+- confirm the default behavior points to the `site` origin
+- confirm the `studiox/images/*` behavior points to the `images` origin and is ordered above the default behavior
+- confirm the site and images functions are both associated with `Viewer request`
+- open `/`, `/about`, and one blog detail route from the main CloudFront domain
+- open one asset such as `/studiox/images/home/hero.webp` from the same domain
+- if CloudFront serves stale content, create an invalidation for the distribution
 
 ### Useful AWS References
 
