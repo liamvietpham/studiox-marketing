@@ -24,7 +24,7 @@
     "titleEmphasis": "Digital Luxury.",
     "exploreLabel": "Explore Portfolio",
     "scrollLabel": "Scroll",
-    "imageUrl": "https://studiox-image.liamhub.io.vn/home/hero.webp",
+    "imageUrl": "https://liamhub.io.vn/studiox/images/home/hero.webp",
     "imageAlt": "Minimalist brutalist concrete architecture interior with dramatic light and shadow."
   },
   "philosophy": {
@@ -44,13 +44,13 @@
       {
         "category": "Architectural Visuals",
         "title": "The Monolith Collective",
-        "imageUrl": "https://studiox-image.liamhub.io.vn/home/monolith-collective.webp",
+        "imageUrl": "https://liamhub.io.vn/studiox/images/home/monolith-collective.webp",
         "imageAlt": "High-fashion editorial shot of a sculptural stone vase in a minimalist gallery."
       },
       {
         "category": "Digital Commerce",
         "title": "Aura Fragrances",
-        "imageUrl": "https://studiox-image.liamhub.io.vn/home/aura-fragrances.webp",
+        "imageUrl": "https://liamhub.io.vn/studiox/images/home/aura-fragrances.webp",
         "imageAlt": "Luxury boutique interior with dark wood textures and warm accent lighting."
       }
     ]

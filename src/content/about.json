@@ -26,7 +26,7 @@
     "description": "We are a multidisciplinary studio that designs for permanence. Our approach is surgical, our aesthetic is cinematic, and our results are timeless. We do not just build interfaces; we curate experiences that command attention through restraint rather than noise."
   },
   "coverImage": {
-    "url": "https://studiox-image.liamhub.io.vn/about/hero.webp",
+    "url": "https://liamhub.io.vn/studiox/images/about/hero.webp",
     "alt": "Dramatic wide shot of a minimalist concrete architecture interior with cinematic sunlight."
   },
   "principles": {
@@ -76,21 +76,21 @@
         "name": "Julian North",
         "role": "Creative Director",
         "offset": "none",
-        "imageUrl": "https://studiox-image.liamhub.io.vn/about/team-julian.webp",
+        "imageUrl": "https://liamhub.io.vn/studiox/images/about/team-julian.webp",
         "imageAlt": "Black and white cinematic portrait of a creative director."
       },
       {
         "name": "Elena Voss",
         "role": "Strategy Lead",
         "offset": "medium",
-        "imageUrl": "https://studiox-image.liamhub.io.vn/about/team-elena.webp",
+        "imageUrl": "https://liamhub.io.vn/studiox/images/about/team-elena.webp",
         "imageAlt": "Minimal portrait of a woman with soft natural lighting."
       },
       {
         "name": "Marcus Thorne",
         "role": "Design Principal",
         "offset": "large",
-        "imageUrl": "https://studiox-image.liamhub.io.vn/about/team-marcus.webp",
+        "imageUrl": "https://liamhub.io.vn/studiox/images/about/team-marcus.webp",
         "imageAlt": "Artistic profile shot of a designer with dramatic lighting."
       }
     ]

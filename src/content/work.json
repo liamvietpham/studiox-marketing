@@ -39,7 +39,7 @@
       "categories": ["architecture"],
       "gridClass": "col-span-12",
       "imageAspectClass": "aspect-[21/9]",
-      "imageUrl": "https://studiox-image.liamhub.io.vn/work/obsidian-monolith.webp",
+      "imageUrl": "https://liamhub.io.vn/studiox/images/work/obsidian-monolith.webp",
       "imageAlt": "Monolithic concrete skyscraper reflecting golden sunset light in a clean urban environment."
     },
     {
@@ -50,7 +50,7 @@
       "categories": ["architecture"],
       "gridClass": "col-span-12 md:col-span-7",
       "imageAspectClass": "aspect-[4/5]",
-      "imageUrl": "https://studiox-image.liamhub.io.vn/work/nordic-synthesis.webp",
+      "imageUrl": "https://liamhub.io.vn/studiox/images/work/nordic-synthesis.webp",
       "imageAlt": "Minimalist interior design with raw oak furniture and soft morning light."
     },
     {
@@ -61,7 +61,7 @@
       "categories": ["branding"],
       "gridClass": "col-span-12 md:col-span-4 md:col-start-9 md:pt-32",
       "imageAspectClass": "aspect-[3/4]",
-      "imageUrl": "https://studiox-image.liamhub.io.vn/work/maison-noire-identity.webp",
+      "imageUrl": "https://liamhub.io.vn/studiox/images/work/maison-noire-identity.webp",
       "imageAlt": "Clean typographic brand identity mockup on textured ivory paper."
     },
     {
@@ -72,7 +72,7 @@
       "categories": ["digital"],
       "gridClass": "col-span-12 md:col-span-5",
       "imageAspectClass": "aspect-square",
-      "imageUrl": "https://studiox-image.liamhub.io.vn/work/nexus-os-concept.webp",
+      "imageUrl": "https://liamhub.io.vn/studiox/images/work/nexus-os-concept.webp",
       "imageAlt": "Futuristic digital interface prototype displayed on a glass tablet."
     },
     {
@@ -83,7 +83,7 @@
       "categories": ["architecture"],
       "gridClass": "col-span-12 md:col-span-6 md:col-start-7",
       "imageAspectClass": "aspect-[16/10]",
-      "imageUrl": "https://studiox-image.liamhub.io.vn/work/vitra-pavilion.webp",
+      "imageUrl": "https://liamhub.io.vn/studiox/images/work/vitra-pavilion.webp",
       "imageAlt": "Modern glass office building at night with glowing interior lights."
     }
   ],
